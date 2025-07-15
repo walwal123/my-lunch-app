@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p {
+    color: white;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(250, 235, 215);
+    height: 100vh;
+}
+
+.nav {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(256, 165, 30, 1);
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.nav_calendar_icon {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.main_icon {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+}
+
+.nav_box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav_main {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+.nav_login {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.main_box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_box {
+    width: 35rem;
+    height: 30rem;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgb(244, 164, 96);
+    display: flex;
+    flex-direction: column;
+}
+
+.login_box p {
+    color: rgb(255, 127, 80);
+}
+
+.login_title {
+    font-size: 2rem;
+    display: flex;
+    justify-content: left;
+    font-weight: bold;
+}
+
+.login_main_icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.8rem;
+}
+
+.login_top_box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+#user_name {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    padding: 0.3rem;
+    width: 31rem;
+    height: 3rem;
+    border: 1px solid rgb(244, 164, 96);
+}
+
+#user_id {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    padding: 0.3rem;
+    width: 31rem;
+    height: 3rem;
+    border: 1px solid rgb(244, 164, 96);
+}
+
+#user_pw {
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+    padding: 0.3rem;
+    width: 31rem;
+    height: 3rem;
+    border: 1px solid rgb(244, 164, 96);
+}
+
+#user_pw_con {
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+    padding: 0.3rem;
+    width: 31rem;
+    height: 3rem;
+    border: 1px solid rgb(244, 164, 96);
+}
+
+#login_btn {
+    padding: 0.3rem;
+    margin-left: 2rem;
+    width: 31rem;
+    height: 3rem;
+    color: rgb(250, 235, 215);
+    background-color: rgb(255, 127, 80);
+    border: 1px solid rgb(250, 235, 215);
+    margin-top: 3rem;
+}

@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p {
+    color: white;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(250, 235, 215);
+    height: 130rem;
+}
+
+.nav {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(256, 165, 30, 1);
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.nav_calendar_icon {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.main_icon {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+}
+
+.nav_box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav_main {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+.nav_login {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.main_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main_title {
+    display: flex;
+    flex-direction: row;
+    font-size: 3.5rem;
+    justify-content: center;
+    margin: 5rem;
+    color: rgb(255, 127, 80);
+    font-weight: bold;
+}
+
+.recommend_input {
+    width: 50rem;
+    height: 3rem;
+    border-radius: 10px;
+    color: black;
+    padding-left: 10px;
+    background-color: white;
+    border: 1px solid rgb(255, 127, 80);
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+}
+
+.tag_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tag_box button:hover {
+    color: white;
+}
+
+.input_box {
+    display: flex;
+    justify-content: center;
+}
+
+.tag_box button {
+    margin: 3px;
+    background-color: rgb(244, 164, 96);
+    color: rgb(250, 235, 215);
+    font-size: 1rem;
+    padding: 0.3rem;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.rcbtn {
+    width: 25rem;
+    height: 3rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    border: 1px solid white;
+    background-color: rgb(255, 127, 80);
+    color: rgb(250, 235, 215);
+}
+
+.rcbtn:hover {
+    background-color: rgb(244, 164, 96);
+}
+
+.list_box_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.list_box_main p {
+    color: rgb(10, 10, 10);
+    font-size: 1rem;
+}
+
+.list_box {
+    width: 70rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid whitesmoke;
+}
+
+.list_box_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid rgb(228, 228, 228);
+    border-bottom: 1px solid rgb(228, 228, 228);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.list_row_side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#list_box_title {
+    font-size: 1.5rem;
+    margin: 10px;
+    margin-left: 1.3rem;
+}
+
+.food_tag {
+    width: 10rem;
+    display: flex;
+    justify-content: left;
+    margin-right: 10rem;
+}
+
+.store_tag {
+    margin-left: 1rem;
+}
+
+.store_add {
+    width: 20rem;
+    display: flex;
+    justify-content: right;
+}
+
+.location_input {
+    width: 50rem;
+    height: 3rem;
+    border-radius: 10px;
+    color: black;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    background-color: white;
+    border: 1px solid rgb(255, 127, 80);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    text-align: center;
+}
+
+.location_box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}
+
+.loading-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ccc;
+    border-top: 3px solid #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20rem;
+    padding: 20px 30px;
+    border-radius: 12px;
+    z-index: 100;
+}
+
+.loading-p {
+    color: rgb(244, 164, 96);
+    z-index: 100;
+}
+
+.selected-items p {
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 127, 80);
+    margin: 2px 0;
+}
+
+.selected-items {
+    height: 3rem;
+}

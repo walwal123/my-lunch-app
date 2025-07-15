@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model employees {
+  emp_no     Int              @id @default(autoincrement())
+  birth_date DateTime         @db.Date
+  first_name String           @db.VarChar(14)
+  last_name  String           @db.VarChar(16)
+  gender     employees_gender
+  hire_date  DateTime         @db.Date
+}
+
+model m1000 {
+  menu_index Int    @id
+  menu_name  String @db.VarChar(255)
+  price      String @db.VarChar(255)
+  how_sell   Int
+}
+
+model stores {
+  store_index Int     @id
+  store_name  String  @db.VarChar(255)
+  location    String  @db.VarChar(255)
+  start_date  String  @db.VarChar(255)
+  store_sell  String? @db.VarChar(255)
+}
+
+model user {
+  user_id   Int    @id @default(autoincrement())
+  id        String @db.VarChar(100)
+  user_name String @db.VarChar(100)
+  user_pw   String @db.VarChar(100)
+}
+
+model user_info {
+  emp_no     Int    @id @default(autoincrement())
+  user_id    String @db.VarChar(50)
+  user_name  String @db.VarChar(100)
+  user_pw    String @db.VarChar(100)
+  user_email String @db.VarChar(100)
+}
+
+enum employees_gender {
+  M
+  F
+}

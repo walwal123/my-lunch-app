@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>점메추 메인</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="nav">
+            <div class="nav_box">
+                <img src="../img/free-icon-sandwich-454602.png" class="main_icon">
+                <p class="nav_main">점심의 아이</p>
+            </div>
+            <div class="nav_box">
+                <img src="../img/calendar.png" class="nav_calendar_icon">
+                <p class="nav_login">로그인/회원가입</p>
+            </div>
+        </div>
+        <div class="main_box">
+            <div class="location_box">
+                <input type="text" class="location_input" placeholder="추천될 지역의 동 이름을 입력하세요!">
+            </div>
+            <p class="main_title">점심 메뉴 추천</p>
+            <div class="input_box">
+                <input type="text" id="tag_input" class="recommend_input" placeholder="아래의 키워드를 눌러 추가하세요!" disabled>
+            </div>
+            <div class="tag_box">
+                <button>국물류</button>
+                <button>면류</button>
+                <button>튀김</button>
+            </div>
+            <div class="input_box">
+                <input type="submit" value="추천하기!" class="rcbtn">
+            </div>
+            <div class="list_box_main">
+                <div class="list_box">
+                    <p id="list_box_title">추천된 메뉴들</p>
+                    <div class="list_box_row">
+                        <div class="list_row_side">
+                            <input type="checkbox">
+                            <p class="store_tag">랜게</p>
+                        </div>
+                        <div class="list_row_side">
+                            <p class="food_tag">라멘전문점</p>
+                            <p class="store_add">서울시 마포구 신촌로 14길 24 1층</p>
+                        </div>
+                    </div>
+                    <div class="list_box_row">
+                        <div class="list_row_side">
+                            <input type="checkbox">
+                            <p class="store_tag">용우동</p>
+                        </div>
+                        <div class="list_row_side">
+                            <p class="food_tag">일식돈까스전문점</p>
+                            <p class="store_add">서울시 마포구 서강로 10길 234 1층</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

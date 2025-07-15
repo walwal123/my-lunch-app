@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p {
+    color: white;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(250, 235, 215);
+    height: 100vh;
+}
+
+.nav {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(256, 165, 30, 1);
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.nav_calendar_icon {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.main_icon {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+}
+
+.nav_box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav_main {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+.nav_login {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.main_box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_box {
+    width: 35rem;
+    height: 25rem;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgb(244, 164, 96);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_box p {
+    color: rgb(255, 127, 80);
+}
+
+.login_title {
+    margin-top: 1.5rem;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.login_main_icon {
+    width: 3rem;
+    height: 3rem;
+    margin-top: 2rem;
+    margin-right: 0.8rem;
+}
+
+.login_top_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#user_id {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    padding: 0.3rem;
+    width: 25rem;
+    height: 3rem;
+    border: 1px solid rgb(244, 164, 96);
+}
+
+#user_pw {
+    margin-bottom: 1rem;
+    padding: 0.3rem;
+    width: 25rem;
+    height: 3rem;
+    border: 1px solid rgb(244, 164, 96);
+}
+
+#login_btn {
+    padding: 0.3rem;
+    width: 25rem;
+    height: 3rem;
+    color: rgb(250, 235, 215);
+    background-color: rgb(255, 127, 80);
+    border: 1px solid rgb(250, 235, 215);
+}
+
+.login_footer {
+    width: 35rem;
+    margin-top: 2.8rem;
+    margin-right: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: right;
+}
+
+.login_footer a {
+    color: rgb(244, 164, 96);
+}
