@@ -1,15 +1,63 @@
 'use client';
 import './main.css';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 export default function RecommendationPage() {
     const [keywords, setKeywords] = useState([]);
     const [location, setLocation] = useState('');
     const [result, setResult] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [checkedItems, setCheckedItems] = useState([]);
     const [checkedIndex, setCheckedIndex] = useState(null);
+    const [value, onChange] = useState(new Date());
+
+    const mapRef = useRef(null);
+
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=d0f5d32d4d1a7f29691a4a04411567a0&autoload=false`;
+        script.async = true;
+
+        script.onload = () => {
+            window.kakao.maps.load(() => {
+                const center = new window.kakao.maps.LatLng(37.5665, 126.9780);
+
+                const map = new window.kakao.maps.Map(mapRef.current, {
+                    center,
+                    level: 4,
+                });
+
+                result.forEach(item => {
+                    const lat = parseFloat(item.mapy) / 1e7;
+                    const lng = parseFloat(item.mapx) / 1e7;
+
+                    const markerPosition = new window.kakao.maps.LatLng(lat, lng);
+
+                    const marker = new window.kakao.maps.Marker({
+                        position: markerPosition,
+                        map,
+                    });
+
+                    const iwContent = `<div style="padding:5px;font-size:12px;">${item.store}</div>`;
+                    const infowindow = new window.kakao.maps.InfoWindow({
+                        content: iwContent,
+                    });
+
+                    window.kakao.maps.event.addListener(marker, 'mouseover', () => {
+                        infowindow.open(map, marker);
+                    });
+
+                    window.kakao.maps.event.addListener(marker, 'mouseout', () => {
+                        infowindow.close();
+                    });
+                });
+            });
+        };
+
+        document.head.appendChild(script);
+    }, [result]);
 
     const handleTagClick = (tag) => {
         if (!keywords.includes(tag)) {
@@ -25,7 +73,7 @@ export default function RecommendationPage() {
             return;
         }
 
-        setLoading(true); // 로딩 시작
+        setLoading(true);
 
         try {
             const res = await fetch('/api/recommend', {
@@ -40,7 +88,7 @@ export default function RecommendationPage() {
             console.error(err);
             alert('추천에 실패했습니다.');
         } finally {
-            setLoading(false); // 로딩 끝
+            setLoading(false);
         }
     };
 
@@ -136,6 +184,21 @@ export default function RecommendationPage() {
                             </div>
                         ))}
                     </div>
+                </div>
+
+                <div className='map_box'>
+                    <p className='map_title'>가게 위치</p>
+                    <div className='kakao_map_box'>
+                        <div
+                            ref={mapRef}
+                            style={{ width: '100%', height: '540px', border: '1px solid #ccc' }}
+                        />
+                    </div>
+                </div>
+
+                <div className='cel_box'>
+                    <p className='cel_title'>나의 점심 기록</p>
+                    <Calendar onChange={onChange} value={value}></Calendar>
                 </div>
             </div>
         </div>

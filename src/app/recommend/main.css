@@ -12,7 +12,7 @@ p {
     display: flex;
     flex-direction: column;
     background-color: rgb(250, 235, 215);
-    height: 130rem;
+    height: 160rem;
 }
 
 .nav {
@@ -137,7 +137,7 @@ p {
 }
 
 .list_box {
-    width: 70rem;
+    width: 80rem;
     height: 20rem;
     display: flex;
     flex-direction: column;
@@ -271,4 +271,41 @@ p {
 
 .selected-items {
     height: 3rem;
+}
+
+.map_box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.map_title {
+    color: rgb(255, 127, 80);
+    font-weight: bold;
+    font-size: 1.8rem;
+    width: 80rem;
+    margin-bottom: 1rem;
+}
+
+.cel_box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 7rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.cel_title {
+    color: rgb(255, 127, 80);
+    font-weight: bold;
+    font-size: 1.8rem;
+    width: 70rem;
+    margin-bottom: 1rem;
+}
+
+.kakao_map_box {
+    width: 80rem;
+    border: 1px solid rgb(244, 164, 96);
 }

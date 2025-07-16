@@ -87,6 +87,8 @@ export async function POST(req) {
                     menu: name,
                     store: item.title.replace(/<[^>]*>/g, ''),
                     address: item.roadAddress,
+                    mapx: item.mapx,
+                    mapy: item.mapy
                 });
             } else {
                 // results.push({
