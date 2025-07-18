@@ -40,10 +40,12 @@
 - user
     
     <aside>
-    
     user_id INT PRIMARY KEY AUTO_INCREMENT, // 고유 번호, 자동 증가
+        
     id VARCHAR(100) NOT NULL,          // 사용자 ID
+  
     user_name VARCHAR(100) NOT NULL,       //사용자 이름
+  
     user_pw VARCHAR(100) NOT NULL         // 비밀번호
     
     </aside>
