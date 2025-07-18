@@ -32,10 +32,11 @@ model stores {
 }
 
 model user {
-  user_id   Int    @id @default(autoincrement())
-  id        String @db.VarChar(100)
-  user_name String @db.VarChar(100)
-  user_pw   String @db.VarChar(100)
+  user_id   Int     @id @default(autoincrement())
+  id        String  @db.VarChar(100)
+  user_name String  @db.VarChar(100)
+  user_pw   String  @db.VarChar(100)
+  lunch     lunch[]
 }
 
 model user_info {
@@ -44,6 +45,16 @@ model user_info {
   user_name  String @db.VarChar(100)
   user_pw    String @db.VarChar(100)
   user_email String @db.VarChar(100)
+}
+
+model lunch {
+  lunch_id   Int      @id @default(autoincrement())
+  user_id    Int
+  lunch_name String   @db.VarChar(100)
+  lunch_date DateTime @db.Date
+  user       user     @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: Restrict, map: "lunch_ibfk_1")
+
+  @@index([user_id], map: "user_id")
 }
 
 enum employees_gender {

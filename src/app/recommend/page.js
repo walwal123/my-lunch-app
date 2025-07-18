@@ -1,9 +1,10 @@
 'use client';
-import './main.css';
 
 import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import './main.css';
 
 export default function RecommendationPage() {
     const [keywords, setKeywords] = useState([]);
@@ -12,8 +13,38 @@ export default function RecommendationPage() {
     const [loading, setLoading] = useState(false);
     const [checkedIndex, setCheckedIndex] = useState(null);
     const [value, onChange] = useState(new Date());
+    const [userName, setUserName] = useState(null);
+    const [lunchData, setLunchData] = useState([]);
 
     const mapRef = useRef(null);
+
+    useEffect(() => {
+        const user_id = getCookie('user_id');
+        if (!user_id) return;
+
+        fetch(`/api/lunch?user_id=${user_id}`)
+            .then(res => res.json())
+            .then(data => {
+                setLunchData(data.lunches || []);
+            })
+            .catch(err => console.error('점심 데이터 가져오기 실패', err));
+    }, []);
+
+    useEffect(() => {
+        const name = getCookie('user_name');
+        if (name) setUserName(name);
+    }, []);
+
+    function getCookie(name) {
+        const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? decodeURIComponent(match[2]) : null;
+    }
+
+    const handleLogout = () => {
+        document.cookie = 'user_id=; Max-Age=0; path=/';
+        document.cookie = 'user_name=; Max-Age=0; path=/';
+        window.location.reload();
+    };
 
     useEffect(() => {
         const script = document.createElement('script');
@@ -92,6 +123,43 @@ export default function RecommendationPage() {
         }
     };
 
+    const handleSaveLunch = async () => {
+        if (checkedIndex === null) {
+            alert('메뉴를 선택해주세요!');
+            return;
+        }
+
+        const selected = result[checkedIndex];
+        const user_id = getCookie('user_id');
+
+        if (!user_id) {
+            alert('로그인이 필요합니다.');
+            return;
+        }
+
+        try {
+            const res = await fetch('/api/lunch', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    user_id,
+                    lunch_name: selected.menu,
+                    lunch_date: new Date().toISOString().split('T')[0] // YYYY-MM-DD
+                }),
+            });
+
+            const data = await res.json();
+            if (res.ok) {
+                alert('점심이 저장되었습니다!');
+            } else {
+                alert(data.error || '저장에 실패했습니다.');
+            }
+        } catch (err) {
+            console.error(err);
+            alert('저장 중 오류 발생');
+        }
+    };
+
     return (
         <div className="main">
 
@@ -112,7 +180,14 @@ export default function RecommendationPage() {
                 </div>
                 <div className="nav_box">
                     <img src="/img/calendar.png" className="nav_calendar_icon" />
-                    <p className="nav_login">로그인/회원가입</p>
+                    {userName ? (
+                        <>
+                            <span className="nav_user">{userName}님/</span>
+                            <button className="nav_logout" onClick={handleLogout}>로그아웃</button>
+                        </>
+                    ) : (
+                        <Link href="/login" className="nav_login">로그인/회원가입</Link>
+                    )}
                 </div>
             </div>
 
@@ -166,6 +241,9 @@ export default function RecommendationPage() {
                 <div className="list_box_main">
                     <div className="list_box">
                         <p id="list_box_title">추천된 메뉴들</p>
+                        <div className='btn_box'>
+                            <button id='lunch_save' onClick={handleSaveLunch}>결정하기</button>
+                        </div>
                         {result.map((item, idx) => (
                             <div key={idx} className="list_box_row">
                                 <div className="list_row_side">
@@ -198,7 +276,26 @@ export default function RecommendationPage() {
 
                 <div className='cel_box'>
                     <p className='cel_title'>나의 점심 기록</p>
-                    <Calendar onChange={onChange} value={value}></Calendar>
+                    <Calendar
+                        onChange={onChange}
+                        value={value}
+                        tileContent={({ date, view }) => {
+                            if (view === 'month') {
+                                const dateStr = date.getFullYear() + '-' +
+                                    String(date.getMonth() + 1).padStart(2, '0') + '-' +
+                                    String(date.getDate()).padStart(2, '0');
+
+                                const lunch = lunchData.find(
+                                    (item) => item.lunch_date.split('T')[0] === dateStr
+                                );
+                                return lunch ? (
+                                    <div style={{ fontSize: '10px', marginTop: '4px', color: 'green' }}>
+                                        {lunch.lunch_name}
+                                    </div>
+                                ) : null;
+                            }
+                        }}
+                    />
                 </div>
             </div>
         </div>

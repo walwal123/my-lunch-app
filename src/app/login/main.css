@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p {
+    color: white;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(250, 235, 215);
+    height: 130rem;
+}
+
+.nav {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(256, 165, 30, 1);
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.nav_calendar_icon {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.main_icon {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+}
+
+.nav_box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav_main {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+.nav_login {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.main_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main_title {
+    display: flex;
+    flex-direction: row;
+    font-size: 3.5rem;
+    justify-content: center;
+    margin: 5rem;
+    color: rgb(255, 127, 80);
+    font-weight: bold;
+}
+
+.recommend_input {
+    width: 50rem;
+    height: 3rem;
+    border-radius: 10px;
+    color: rgb(250, 235, 215);
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.tag_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.input_box {
+    display: flex;
+    justify-content: center;
+}
+
+.tag_box button {
+    margin: 3px;
+    background-color: rgb(244, 164, 96);
+    color: rgb(250, 235, 215);
+    font-size: 1rem;
+    padding: 0.3rem;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.rcbtn {
+    width: 25rem;
+    height: 3rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    border: 1px solid white;
+    background-color: rgb(255, 127, 80);
+    color: rgb(250, 235, 215);
+}
+
+.list_box_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.list_box_main p {
+    color: rgb(10, 10, 10);
+    font-size: 1rem;
+}
+
+.list_box {
+    width: 70rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid whitesmoke;
+}
+
+.list_box_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid rgb(228, 228, 228);
+    border-bottom: 1px solid rgb(228, 228, 228);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.list_row_side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#list_box_title {
+    font-size: 1.5rem;
+    margin: 10px;
+    margin-left: 1.3rem;
+}
+
+.food_tag {
+    width: 10rem;
+    display: flex;
+    justify-content: left;
+    margin-right: 10rem;
+}
+
+.store_tag {
+    margin-left: 1rem;
+}
+
+.store_add {
+    width: 20rem;
+    display: flex;
+    justify-content: right;
+}
+
+.location_input {
+    width: 13.5rem;
+    margin: 0.3rem;
+    height: 1.5rem;
+    padding: 0.3rem;
+}

@@ -144,6 +144,7 @@ p {
     background-color: white;
     border-radius: 10px;
     border: 1px solid whitesmoke;
+    overflow: scroll;
 }
 
 .list_box_row {
@@ -301,11 +302,58 @@ p {
     color: rgb(255, 127, 80);
     font-weight: bold;
     font-size: 1.8rem;
-    width: 70rem;
+    width: 80rem;
     margin-bottom: 1rem;
 }
 
 .kakao_map_box {
     width: 80rem;
     border: 1px solid rgb(244, 164, 96);
+}
+
+.react-calendar {
+    width: 80rem;
+    height: 35rem;
+}
+
+.react-calendar button {
+    height: 5rem;
+
+}
+
+.react-calendar__month-view__weekdays__weekday {
+    margin-top: 2rem;
+}
+
+.react-calendar__tile {
+    text-align: start;
+}
+
+.nav_user {
+    font-weight: bold;
+    color: #333;
+}
+
+.nav_logout {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+#lunch_save {
+    width: 5rem;
+    background-color: rgb(255, 127, 80);
+    border: 1px solid white;
+    color: white;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.btn_box {
+    display: flex;
+    justify-content: right;
 }
